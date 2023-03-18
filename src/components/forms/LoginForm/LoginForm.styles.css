@@ -1,0 +1,50 @@
+.loginform-container,
+.loginform{
+    display: flex;
+    flex-direction: column;
+}
+
+.loginform-container{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.loginform__title{
+    color: rgb(61, 61, 61);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.loginform__label{
+    text-align: left;
+    padding: 0.25rem 0;
+}
+
+.loginform__input{
+    margin: 1rem 0;
+    padding: 1rem;
+    border: gray;
+    border-radius: 10px;
+    background-color: rgba(0, 112, 217, 0.487);
+    color: #000000;
+}
+
+.loginform__button{
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #7439db;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #d9ce0073;
+}
+
+@media screen and (max-width: 992px) {
+    .loginform-container{
+        width: 90%;
+        margin: 0 auto;
+    }
+}

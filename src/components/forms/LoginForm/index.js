@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { mockuser } from "../../../mockdata/users";
+import { mockuser } from "../../../assets/mockdata/users";
+
+import "./LoginForm.styles.css";
 
 export const LoginForm = () => {
     const navigate = useNavigate();
@@ -38,7 +40,7 @@ export const LoginForm = () => {
     }   
 
     return (
-        <>
+        <div className="loginform-container">
             {
                 success ? (
                     <section>
@@ -47,9 +49,9 @@ export const LoginForm = () => {
                     </section>
                 ) : (
                     <section>
-                        <h1>Login</h1>
-                        <form onSubmit={handleSubmit}>
-                            <label htmlFor="username">Username:</label><br/>
+                        <h1 className="loginform__title">Login</h1>
+                        <form onSubmit={handleSubmit} className="loginform">
+                            <label htmlFor="username" className="loginform__label">Username:</label>
                             <input
                                 type="text"
                                 value={username}
@@ -58,23 +60,25 @@ export const LoginForm = () => {
                                 id="username"
                                 autoComplete="off"
                                 ref={userRef}
-                            /><br/>
+                                className="loginform__input"
+                            />
 
-                            <label htmlFor="password">Password:</label><br/>
+                            <label htmlFor="password" className="loginform__label">Password:</label>
                             <input 
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                                 id="password"
-                            /><br/>
+                                className="loginform__input"
+                            />
 
-                            <button>Login</button>
+                            <button className="loginform__button">Login</button>
                         </form>
                         <p ref={errRef}>{errMsg}</p>
                     </section>
                 )
             }
-        </>
+        </div>
     )
 }
