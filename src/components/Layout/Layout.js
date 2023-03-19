@@ -4,12 +4,13 @@ import "./Layout.css";
 
 export const Layout = () => {
     const { auth } = useAuth();
+    const isLogin = localStorage.getItem("isLogin");
 
     return (
         <>
             <header>
                 {
-                    auth.username ? (
+                    auth.username || isLogin ? (
                         <nav>
                             <NavLink to="/">Home</NavLink>
                             <NavLink to="/news">News</NavLink>

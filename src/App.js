@@ -15,9 +15,12 @@ export const App = () => {
       <Routes path="/">
         <Route path="/" element={<Layout/>}>
           <Route index path="/" element={<Home/>}/>
-          <Route path="login" element={<Login />}/>
+          <Route path="login" element={<Login/> }/>
           <Route path="news" element={
-            <News />}/>
+            <RequireAuth>
+              <News/>
+            </RequireAuth>
+          }/>
           <Route path="profile" element={
             <RequireAuth>
               <Profile/>

@@ -30,12 +30,12 @@ export const LoginForm = () => {
         const matchUsername = username === mockuser.username;
         const matchPassword = password === mockuser.password;
         if(matchUsername && matchPassword){
-            setAuth({ username, password})
+            localStorage.setItem("isLogin", "true");
+            setAuth({ username, password});
             setSuccess(true);
             setUsername("");
             setPassword("");
             navigate("/profile");
-            
         }else {
             errRef.current.focus();
             setErrMsg("The username or password you entered is incorrect.");
