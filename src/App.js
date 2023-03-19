@@ -5,6 +5,7 @@ import { Login } from "./pages/Login";
 import { News } from "./pages/News";
 import { Profile } from "./pages/Profile";
 import { Layout } from "./components/Layout/Layout";
+import { NotFound } from "./pages/NotFound";
 
 import { RequireAuth } from "./components/hoc/RequitrAuth";
 
@@ -23,6 +24,7 @@ export const App = () => {
             </RequireAuth>
           }/>
         </Route>
+        <Route path="*" element={<NotFound />}/>
       </Routes>
     </div>
   );
