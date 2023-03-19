@@ -1,10 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { mockuser } from "../../../assets/mockdata/users";
+import useAuth from "../../../hooks/useAuth";
 
 import "./LoginForm.styles.css";
 
 export const LoginForm = () => {
+    const { setAuth } = useAuth();
     const navigate = useNavigate();
     const userRef = useRef();
     const errRef = useRef();
@@ -28,6 +30,7 @@ export const LoginForm = () => {
         const matchUsername = username === mockuser.username;
         const matchPassword = password === mockuser.password;
         if(matchUsername && matchPassword){
+            setAuth({ username, password})
             setSuccess(true);
             setUsername("");
             setPassword("");
