@@ -1,13 +1,17 @@
+import HomeImg from "../../assets/images/login/img3.jpg";
 import "./NewsList.styles.css";
 
 export const NewsList = ({ news }) => {
     return (
         news.map(article => {
             const { source, urlToImage, title, author, publishedAt, url, description} = article;
+            const imgUrl = urlToImage ? urlToImage : HomeImg;
             return (
-                <p key={source.id} className="news-item">
+                <div key={`${source.id}-${publishedAt}`} className="news-item">
                     <a href={url}>
-                        <img src={urlToImage} alt={title} width="400px" height="250px"/>
+                        {
+                            <img src={imgUrl} alt={title} width="400px" height="250px"/>
+                        }
                     </a>
                     <div>
                         <h1>{title}</h1>
@@ -19,7 +23,7 @@ export const NewsList = ({ news }) => {
                             { description }
                         </div>
                     </div>
-                </p>
+                </div>
             )
         })
     )
